@@ -32,4 +32,9 @@ h1, h2{
 
 a:any-link{
     color: #8b0000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ec3d3d;
 }
