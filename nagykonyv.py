@@ -20,5 +20,41 @@ with open('2023/Forrasok/02_feladat/konyvek.txt', 'r',encoding='utf-8') as forra
         }
         konyvek.append(konyv)
 
-print(f'{konyvek=}')
+# 3.2.feladat
+print(f"3.2.feladat: Az állományban {len(konyvek)} adatai szerepelnek.")
 
+#3.3.feladat
+magyar_konyvek = []
+for konyv in konyvek:
+    if konyv["nemzetiségek"] == 'magyar':
+        magyar_konyvek.append(konyv)
+
+print(len(magyar_konyvek))
+
+legjobb_konyv = magyar_konyvek[0]
+for konyv in magyar_konyvek:
+    if konyv['helyezés'] < legjobb_konyv['helyezés']:
+        legjobb_konyv = konyv
+
+print(f" 3.3.feladat: A legjobb helyezést elért magyar könyv: {legjobb_konyv['név']}: {legjobb_konyv['cím']}")
+
+#3.4.feladat
+nemet_iro = False
+for konyv in konyvek:
+    if konyv["nemzetiségek"] == 'német':
+        nemet_iro = True
+
+if nemet_iro:
+        print("3.4.feladat: A listában szerepel német író könyve.")
+else:
+        print("3.4.feladat: A listában nem szerepel német író könyve.")
+
+#3.5.feladat
+idosebb_mint_90 = []
+for konyv in konyvek:
+    if (konyv['hal_Ev'] - konyv['szul_Ev'] > 90):
+        idosebb_mint_90.append(konyv['név'])
+
+print("3.5. feladat: 90 évesnél idősebb írók:")
+for iro in idosebb_mint_90:
+    print("\t"+ iro)
